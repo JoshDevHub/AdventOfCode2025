@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require_relative "../day06"
+
+part = ARGV[0] || "1"
+
+if part == "1"
+  puts Day06.solve_one("input.txt")
+elsif part == "2"
+  puts Day06.solve_two("input.txt")
+else
+  puts "Not a valid part!"
+end
