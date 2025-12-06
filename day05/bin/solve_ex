@@ -1,0 +1,6 @@
+#! /usr/bin/env elixir
+
+Code.require_file("day05.exs")
+
+IO.puts Day05.solve_one("input.txt")
+IO.puts Day05.solve_two("input.txt")
