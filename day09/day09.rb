@@ -16,6 +16,7 @@ module Day09
       def self.to_proc = proc { |a, b| Rectangle[*a, *b] }
       def area = ((x1 - x2).abs + 1) * ((y1 - y2).abs + 1)
       def sorted_points = [x1, x2].sort + [y1, y2].sort
+      def <=>(other) = area <=> other.area
 
       def intersects?(other)
         sx1, sx2, sy1, sy2 = sorted_points
@@ -35,12 +36,10 @@ module Day09
         .area
     end
 
-    def rectangles_by_area
-      @red_tiles.combination(2).map(&Rectangle).sort_by(&:area).reverse!
-    end
+    def rectangles_by_area = @red_tiles.combination(2).map(&Rectangle).sort.reverse!
 
     def edges
-      @edges ||= [*@red_tiles, @red_tiles.last].each_cons(2).map(&Rectangle)
+      @edges ||= [*@red_tiles, @red_tiles.last].each_cons(2).map(&Rectangle).sort.reverse!
     end
   end
 end
